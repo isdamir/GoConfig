@@ -34,7 +34,7 @@ func NewDefaultWebConfig() (config *WebConfigData, err error) {
 	config = &WebConfigData{}
 	config.AppName = "App"
 	config.HttpAddr = ":3000"
-	err = config.GetConfig().Register(WebConfigPath, "WebApp", config)
+	err = GetConfig().Register(WebConfigPath, "WebApp", config)
 	return
 }
 
