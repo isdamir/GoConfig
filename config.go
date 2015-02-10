@@ -15,6 +15,29 @@ import (
 	"strings"
 )
 
+var WebConfigPath string = "conf/app.yaml" //默认配置文件位置
+
+//预设的Web配置文件结构体
+type WebConfigData struct {
+	AppName  string
+	HttpAddr string
+	DB       struct {
+		Addr         string //连接地址
+		Name         string //数据库名称
+		UserName     string //用户名
+		UserPassword string //用户密码
+	}
+	Custom map[string]string //自定义信息
+}
+
+func NewDefaultWebConfig() (config *WebConfigData, err error) {
+	config = &WebConfigData{}
+	config.AppName = "App"
+	config.HttpAddr = ":3000"
+	err = config.GetConfig().Register(WebConfigPath, "WebApp", config)
+	return
+}
+
 type Config struct {
 	object map[string]*configData
 	nick   map[string]*configData
