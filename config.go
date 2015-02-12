@@ -16,16 +16,28 @@ import (
 )
 
 var WebConfigPath string = "conf/app.yaml" //默认配置文件位置
+var WebConfigNickName string = "AppConfig"
 
 //预设的Web配置文件结构体
 type WebConfigData struct {
-	AppName  string
-	HttpAddr string
-	DB       struct {
+	AppName    string
+	HttpAddr   string
+	DebugMode  bool
+	RestMethod struct {
+	}
+	DB struct {
 		Addr         string //连接地址
 		Name         string //数据库名称
 		UserName     string //用户名
 		UserPassword string //用户密码
+	}
+	Secret struct {
+		SecretKey string
+	}
+	Session struct {
+		Enabled bool   //是否启用Session
+		Name    string //Session名称
+		MaxAge  int    //最大生存时间,0为Session,负数为清除当前的Cookie
 	}
 	Custom map[string]string //自定义信息
 }
@@ -34,7 +46,14 @@ func NewDefaultWebConfig() (config *WebConfigData, err error) {
 	config = &WebConfigData{}
 	config.AppName = "App"
 	config.HttpAddr = ":3000"
-	err = GetConfig().Register(WebConfigPath, "WebApp", config)
+	config.Secret.SecretKey = "secret-key"
+	config.DB.Addr = "localhost"
+	config.Session.Enabled = false
+	config.DebugMode = true
+	config.Session.Name = "App-Key"
+	config.Session.MaxAge = 0
+
+	err = GetConfig().Register(WebConfigPath, WebConfigNickName, config)
 	return
 }
 

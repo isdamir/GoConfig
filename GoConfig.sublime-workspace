@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"a",
+				"AppName"
+			],
+			[
+				"str",
+				"struct"
+			],
+			[
 				"sco",
 				"score	int ν"
 			],
@@ -122,10 +130,6 @@
 			[
 				"ti",
 				"Time	struct ʈ"
-			],
-			[
-				"a",
-				"AppConfig	*web.AppConfigData ν"
 			],
 			[
 				"im",
@@ -258,10 +262,6 @@
 			[
 				"lo",
 				"Log	err error ƒ"
-			],
-			[
-				"str",
-				"strings	 package ρ"
 			],
 			[
 				"Ac",
@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "config.go",
+			"settings":
+			{
+				"buffer_size": 5219,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -1261,8 +1269,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "config.go",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								565,
+								571
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
